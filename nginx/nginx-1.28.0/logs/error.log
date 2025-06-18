@@ -1,0 +1,15 @@
+2025/06/16 21:05:42 [emerg] 33568#15196: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/06/16 21:15:31 [warn] 23236#11600: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:15:31 [warn] 22912#18056: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:16:22 [warn] 11696#5580: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:16:22 [warn] 22952#23272: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:17:01 [warn] 11920#16832: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:17:01 [warn] 21524#22692: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:18:41 [warn] 23788#20232: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:18:41 [warn] 17172#5440: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:22:47 [warn] 13052#24404: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:22:47 [warn] 25852#26488: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:24:28 [warn] 24484#12788: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:24:28 [warn] 19472#26620: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:29:21 [warn] 23956#24192: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/16 21:29:21 [warn] 512#11672: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2

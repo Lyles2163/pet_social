@@ -1,0 +1,32 @@
+{
+  "name": "pet-social-backend",
+  "version": "1.0.0",
+  "description": "宠物社交小程序后端服务",
+  "main": "app.js",
+  "bin": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build": "pkg . --out-path dist",
+    "build:win": "pkg . --targets node18-win-x64 --out-path dist",
+    "build:linux": "pkg . --targets node18-linux-x64 --out-path dist",
+    "build:mac": "pkg . --targets node18-macos-x64 --out-path dist"
+  },
+  "pkg": {
+    "assets": [
+      "routes/**/*",
+      "dbConfig.js"
+    ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-redis": "^8.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.6.0",
+    "redis": "^4.7.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
