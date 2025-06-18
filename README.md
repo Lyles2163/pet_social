@@ -7,7 +7,7 @@
 **开发者**: 计应2305李阳  
 **项目版本**: 1.0.0  
 **最后更新**: 2025年6月15日
-
+**演示视频**：https://b23.tv/Sj17fTf
 ## 技术架构
 
 ### 前端技术栈
@@ -34,6 +34,10 @@
   - ![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/300.png)
 
 ## 核心功能
+
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/300.png)
 
 ### 🔐 用户系统
 - 手机号+验证码登录/注册
