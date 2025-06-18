@@ -336,7 +336,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .upup{
   width: 100%;
-  height: 150px;
+  height: 300px;
 }
 /* 动画定义 */
 @keyframes pageSlideIn {

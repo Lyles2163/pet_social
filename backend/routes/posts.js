@@ -170,8 +170,12 @@ router.post('/posts/:id/comments', async (req, res) => {
 
   const commentsRedisKey = `post:${postId}:comments`; // 评论列表缓存 Key
   const postRedisKey = `post:${postId}`; // 单个帖子缓存 Key
-  const listRedisKey = POSTS_LIST_CACHE_KEY; // 列表缓存 Key
-
+  // ✅ 修复：使用正确的列表缓存键模式
+  const listRedisKeysToInvalidate = [
+      `${POSTS_LIST_CACHE_KEY_PREFIX}:created_at:DESC`,
+      `${POSTS_LIST_CACHE_KEY_PREFIX}:like_count:DESC`,
+      // 如果有其他排序方式，也需要在这里添加对应的 Key
+  ];
 
   try {
     // Step 1: 插入评论到数据库
@@ -193,7 +197,7 @@ router.post('/posts/:id/comments', async (req, res) => {
     // Step 3: 清理相关缓存
     await redisClient.del(commentsRedisKey); // 清理评论列表缓存
     await redisClient.del(postRedisKey); // 清理单个帖子缓存 (更新评论计数)
-    await redisClient.del(listRedisKey); // 清理列表缓存 (更新评论计数)
+    await redisClient.del(listRedisKeysToInvalidate); // 清理列表缓存 (更新评论计数)
 
     res.json({
       code: 200,

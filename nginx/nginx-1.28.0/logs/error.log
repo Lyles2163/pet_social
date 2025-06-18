@@ -13,3 +13,11 @@
 2025/06/16 21:24:28 [warn] 19472#26620: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
 2025/06/16 21:29:21 [warn] 23956#24192: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
 2025/06/16 21:29:21 [warn] 512#11672: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\pet_social\nginx-1.28.0/conf/nginx.conf:2
+2025/06/18 15:51:41 [warn] 26396#25052: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\nginx\nginx-1.28.0/conf/nginx.conf:2
+2025/06/18 15:51:41 [emerg] 26396#25052: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/06/18 15:52:37 [warn] 6244#6772: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\nginx\nginx-1.28.0/conf/nginx.conf:2
+2025/06/18 15:52:37 [emerg] 6244#6772: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/06/18 15:52:44 [warn] 5156#21896: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\nginx\nginx-1.28.0/conf/nginx.conf:2
+2025/06/18 15:52:44 [emerg] 5156#21896: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/06/18 15:52:45 [warn] 26436#4904: "user" is not supported, ignored in D:\AAAcode\nodejsHomework\nginx\nginx-1.28.0/conf/nginx.conf:2
+2025/06/18 15:52:45 [emerg] 26436#4904: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)

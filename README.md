@@ -31,6 +31,7 @@
   - **存储引擎**: InnoDB
   - **字符集**: utf8mb4 (支持emoji)
   - **核心表**: 用户、宠物、帖子、评论、点赞、标签、搜索记录
+  - ![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/300.png)
 
 ## 核心功能
 
