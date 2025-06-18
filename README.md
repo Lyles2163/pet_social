@@ -34,6 +34,10 @@
 
 ## 核心功能
 
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/300.png)
+
 ### 🔐 用户系统
 - 手机号+验证码登录/注册
 - Session会话管理
