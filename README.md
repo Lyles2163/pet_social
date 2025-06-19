@@ -151,7 +151,8 @@ project/
 
 ---
 
-**联系方式**: 计应2305李阳  
-**项目地址**: `https://github.com/Lyles2163/pet_social_App`
-```
+**联系方式**: 13631155285@163.com 
+**开发者**:计应2305李阳  
+**项目地址**: ``
+```https://github.com/Lyles2163/pet_social_App
         
