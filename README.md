@@ -56,9 +56,8 @@
 
 
 核心功能
-
-这是一张宠物社交平台的图片 [https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png]
-这是一张宠物社交平台的图片 [https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png]
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
 这是一张宠物社交平台的图片 [https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/300.png]
 
 
