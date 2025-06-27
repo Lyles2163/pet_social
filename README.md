@@ -1,6 +1,4 @@
 宠物社交平台 (PET SOCIAL PLATFORM)
-联系方式: 13631155285@163.com [13631155285@163.com]
-开发者:计应2305李阳
 
 项目概述
 
@@ -11,10 +9,7 @@
 最后更新: 2025年6月15日
 演示视频：https://b23.tv/Sj17fTf [https://b23.tv/Sj17fTf]
 
-![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
-![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
 
-![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/400.png)
 
 技术架构
 
@@ -58,7 +53,10 @@
    * 核心表: 用户、宠物、帖子、评论、点赞、标签、搜索记录
    
    * 
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
 
+![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/400.png)
 
 核心功能
 
@@ -237,6 +235,8 @@ project/
 
 ----------------------------------------
 
+联系方式: 13631155285@163.com [13631155285@163.com]
+开发者:计应2305李阳
 
 
 项目地址: ``
