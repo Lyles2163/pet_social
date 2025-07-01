@@ -4,15 +4,49 @@
 
 本项目是一个基于现代化技术栈的宠物社交平台，为宠物爱好者提供分享、交流和互动的社区空间。项目采用前后端分离架构，集成了AI聊天、地图服务、实时天气等丰富功能，致力于打造优质的宠物社交体验。
 
-开发者: 计应2305李阳
-项目版本: 1.0.0
-最后更新: 2025年6月15日
-演示视频：https://b23.tv/Sj17fTf [https://b23.tv/Sj17fTf]
+<<<<<<< HEAD
+**开发者**: 计应2305李阳  
+**项目版本**: 1.0.0  
+**最后更新**: 2025年6月15日
+**演示视频**：https://b23.tv/Sj17fTf
 
+## 技术架构
+
+### 前端技术栈
+
+- **框架**: Vue 3.5.13 (Composition API)
+
+- **构建工具**: Vite 6.3.5
+
+- **路由管理**: Vue Router 4.5.0
+
+- **状态管理**: Pinia 3.0.1
+
+- **UI组件库**: Vant 4.9.20 (移动端优化)
+
+- **HTTP客户端**: Axios 1.10.0
+
+- **nginx**部署:nginx-1.28.0
+  =======
+
+  开发者: 计应2305李阳
+  项目版本: 1.0.0
+  最后更新: 2025年6月15日
+  演示视频：https://b23.tv/Sj17fTf [https://b23.tv/Sj17fTf]
+
+>>>>>>> bfcb8e5eb7907a7b4ffa48c25879d8ca81af598c
 
 
 技术架构
 
+<<<<<<< HEAD
+
+  - **存储引擎**: InnoDB
+  - **字符集**: utf8mb4 (支持emoji)
+  - **核心表**: 用户、宠物、帖子、评论、点赞、标签、搜索记录
+  - =======
+
+>>>>>>> bfcb8e5eb7907a7b4ffa48c25879d8ca81af598c
 
 前端技术栈
 
@@ -45,16 +79,15 @@
 
 
  * 数据库设计
-   
+
    * 存储引擎: InnoDB
-   
+
    * 字符集: utf8mb4 (支持emoji)
-   
+
    * 核心表: 用户、宠物、帖子、评论、点赞、标签、搜索记录
-   
-   * 
-![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
-![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
+
+   * ![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/100.png)
+     ![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/200.png)
 
 ![这是一张宠物社交平台的图片](https://github.com/Lyles2163/pet_social/raw/master/frontend/vue/public/400.png)
 
@@ -235,6 +268,15 @@ project/
 
 ----------------------------------------
 
+<<<<<<< HEAD
+**联系方式**: 13631155285@163.com 
+**开发者**:计应2305李阳  
+
+**项目地址**: ``
+
+```
+        
+=======
 联系方式: 13631155285@163.com [13631155285@163.com]
 开发者:计应2305李阳
 
@@ -242,4 +284,7 @@ project/
 项目地址: ``
 
 
+>>>>>>> bfcb8e5eb7907a7b4ffa48c25879d8ca81af598c
 https://github.com/Lyles2163/pet_social
+
+```
