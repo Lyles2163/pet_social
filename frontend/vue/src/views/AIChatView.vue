@@ -164,19 +164,13 @@ async function callCozeWorkflow(userInput, botMessageIndex) {
 }
 
 function scrollToBottom() {
-  nextTick(() => {
-    const scrollArea = document.querySelector('.scrollarea')
-    if (scrollArea) {
-      // 使用scrollTop方式强制滚动到底部
-      scrollArea.scrollTop = scrollArea.scrollHeight
-    }
-    
-    // 备用方案：使用bottom-anchor
-    const bottomAnchor = document.getElementById('bottom-anchor')
-    if (bottomAnchor) {
-      bottomAnchor.scrollIntoView({ behavior: 'smooth', block: 'end' })
-    }
-  })
+  const scrollArea = document.querySelector('.scrollarea')
+  if (scrollArea) {
+    scrollArea.scrollTo({
+      top: scrollArea.scrollHeight,
+      behavior: 'smooth'
+    })
+  }
 }
 
 onBeforeUnmount(() => {
@@ -336,7 +330,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .upup{
   width: 100%;
-  height: 300px;
+  height: 140px;
 }
 /* 动画定义 */
 @keyframes pageSlideIn {
@@ -446,7 +440,7 @@ onBeforeUnmount(() => {
   left: 0;
   right: 0;
   height: 80px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(44, 62, 80, 0.95);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
@@ -497,10 +491,9 @@ onBeforeUnmount(() => {
   -webkit-overflow-scrolling: touch;
   padding-top: 84px;
   padding-bottom: 180px;
-  background: transparent;
+  background: rgba(44, 62, 80, 0.95);
   scroll-behavior: smooth;
-  /* 确保滚动容器有明确的高度 */
-  height: 0;
+  height: calc(100vh - 200px); /* 确保固定高度 */
 }
 
 .container {
@@ -536,7 +529,7 @@ onBeforeUnmount(() => {
 
 .welcome-message {
   border-radius: 20px;
-  padding: 1rem;
+ 
 }
 
 /* 头像样式 */
@@ -715,7 +708,7 @@ onBeforeUnmount(() => {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(44, 62, 80, 0.95);
   backdrop-filter: blur(15px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem;

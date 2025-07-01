@@ -5,11 +5,48 @@ import { useGlobalStore } from './global.js';
 export const usePostStore = defineStore('post', {
   state: () => ({
     postsList: [],
+    currentPost: null,
+    comments: [],
     loading: false,
     error: null
   }),
   
   actions: {
+    // 获取帖子详情
+    async fetchPostDetail(postId) {
+      this.loading = true;
+      try {
+        const globalStore = useGlobalStore();
+        const response = await axios.get(`${globalStore.POST_NAME}posts/${postId}`);
+        if (response.data.code === 200) {
+          this.currentPost = response.data.data[0] || null;
+        }
+        return response.data;
+      } catch (error) {
+        this.error = error.message;
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    // 获取评论列表
+    async fetchComments(postId) {
+      this.loading = true;
+      try {
+        const globalStore = useGlobalStore();
+        const response = await axios.get(`${globalStore.POST_NAME}posts/${postId}/comments`);
+        if (response.data.code === 200) {
+          this.comments = response.data.data;
+        }
+        return response.data;
+      } catch (error) {
+        this.error = error.message;
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
     // 获取帖子列表（支持排序）
     async fetchPosts(sortBy = 'created_at', sortOrder = 'DESC') {
       this.loading = true;

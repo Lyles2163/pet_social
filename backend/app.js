@@ -10,7 +10,8 @@ const { mysqlPool, redisClient } = require('./dbConfig');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const petsRouter = require('./routes/pets');  // <-- 新增这行
-const searchRouter = require('./routes/search'); // 新增这行
+const searchRouter = require('./routes/search');
+const uploadRouter = require('./routes/upload'); // 新增
 
 // 引入 Session 和 connect-redis
 const session = require('express-session');
@@ -18,29 +19,42 @@ const { RedisStore } = require('connect-redis');
 
 // 配置中间件
 app.use(cors({
-    origin: ['http://localhost', 'http://localhost:5173'], // 允许前端的源
+    origin: ['http://localhost',
+             'http://localhost:5173',
+             'https://gorgeous-thrush-sincerely.ngrok-free.app',
+             'http://222.186.56.249:33546'], 
     credentials: true // 允许发送 cookie
 })); 
+
+// app.use(cors({
+//     origin: function(origin, callback) {
+//         // 允许所有源（包括所有端口）的请求
+//         callback(null, true);
+//     },
+//     credentials: true // 允许发送 cookie
+// }));
 app.use(express.json()); // 解析 JSON 格式的请求体
 
 // 配置 Session 中间件
+// 确保session配置在路由挂载之前
 app.use(session({
-    store: new RedisStore({ client: redisClient }), // 使用 redisClient 作为 Session 存储
-    secret: '计应2305李阳_20250405_secret_key', // 密钥
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: false, // 开发环境可用 false，生产环境应为 true (HTTPS)
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 // 24 小时有效期
-    }
+  store: new RedisStore({ client: redisClient }),
+  secret: '计应2305李阳_20250405_secret_key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24
+  }
 }));
 
-// 挂载路由
+// 之后挂载路由
 app.use('/api', usersRouter);
 app.use('/api', postsRouter);
 app.use('/api', petsRouter);
-app.use('/api/search', searchRouter); // 新增这行
+app.use('/api/search', searchRouter);
+app.use('/api', uploadRouter); // 新增
 
 // 定义一个简单的根路由，用于测试服务器是否运行
 app.get('/', (req, res) => {
@@ -69,8 +83,8 @@ async function startServer() {
     }
 
     // 启动服务器
-    const server = app.listen(port, () => {
-      console.log(`Server running at http://localhost:${port}`);
+    const server = app.listen(port,'0.0.0.0', () => {
+      console.log(`node服务器启动成功`);
     });
 
     // 检查 MySQL 数据库连接

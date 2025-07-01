@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { useUserStore } from '@/stores/userStore'; // 导入 userStore
 import { useGlobalStore } from '@/stores/global'; // 新增：导入 globalStore
-
+import { showSuccessToast, showFailToast } from 'vant'
 const phone = ref('')
 const code = ref('')
 const isRegister = ref(false)
@@ -14,10 +14,14 @@ const globalStore = useGlobalStore(); // 新增：获取 globalStore 实例
 
 const sendCode = async () => {
   try {
-    await axios.post(`${globalStore.POST_NAME}send-code`, { phone: phone.value })
-    alert('验证码已发送')
+    const response = await axios.post(`${globalStore.POST_NAME}send-code`, { 
+      phone: phone.value 
+    });
+    
+    // 显示生成的验证码（实际生产环境应移除）
+    showSuccessToast(`验证码：${response.data.data.code}`);
   } catch (error) {
-    alert('发送验证码失败: ' + error.response?.data?.message || error.message)
+    showFailToast('发送验证码失败: ' + error.response?.data?.message || error.message)
   }
 }
 
@@ -31,7 +35,7 @@ const submit = async () => {
       withCredentials: true // ✅ 确保登录请求也携带 cookie
     });
 
-    alert(isRegister.value ? '注册成功' : '登录成功');
+    showSuccessToast(isRegister.value ? '注册成功' : '登录成功');
 
     // ✅ 使用 userStore 的 action 来设置用户信息并保存到 localStorage
     userStore.setUserInfo(data.data);

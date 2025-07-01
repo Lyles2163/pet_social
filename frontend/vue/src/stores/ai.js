@@ -1,7 +1,4 @@
-
 import { defineStore } from 'pinia'
-// import { c } from 'vite/dist/node/moduleRunnerTransport.d-DJ_mE5sf'
-
 export const aiStore = defineStore('ai', () => {
   // 定义 AI 助手的头像路径
   const botAvatarSrc = new URL('@/assets/images/logo.jpg', import.meta.url).href

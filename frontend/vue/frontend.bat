@@ -32,7 +32,7 @@ if exist package.json (
     )
 
     echo Starting frontend service...
-    call npm run dev
+    call npm run dev -- --host
 ) else (
     echo Error: package.json not found in this directory!
 )

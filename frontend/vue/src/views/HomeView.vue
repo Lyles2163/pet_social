@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { Swipe, SwipeItem, Grid, GridItem, Button, Image as VanImage, Icon, Search as VanSearch } from 'vant';
+import { Swipe, SwipeItem, Grid, GridItem, Button, Image as VanImage, Icon, Search as VanSearch,showFailToast,showSuccessToast  } from 'vant';
 import { CUTE_GIF } from '@/stores/global';
 import { USERS_DEFAULT_AVATAR } from '@/stores/global';
 import { useUserStore } from '@/stores/userStore';
@@ -21,50 +21,55 @@ const postStore = usePostStore(); // 新增：获取 post store 实例
 
 // 新增：获取当前位置并获取天气信息
 const fetchCurrentWeather = async () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const { latitude, longitude } = position.coords;
-      try {
-        // 调用 store 中的接口获取地址和 adcode
-        const addressResult = await globalStore.fetchAddressByRestApi(longitude, latitude);
-        if (addressResult.status === '1' && addressResult.regeocode) {
-          const adcode = addressResult.regeocode.addressComponent.adcode;
-          // 调用 store 中的接口获取天气
-          const weatherResult = await globalStore.fetchWeatherByAdcode(adcode);
-          if (weatherResult.status === '1' && weatherResult.lives?.length > 0) {
-            const weatherData = weatherResult.lives[0];
-            weatherInfo.value = {
-              city: weatherData.city,
-              weather: weatherData.weather,
-              temperature: `${weatherData.temperature}℃`,
-            };
-          } else {
-            console.error('获取天气失败:', weatherResult.info || '无数据');
-            weatherInfo.value = { city: '未知', weather: '未知', temperature: '--℃' };
-          }
-        } else {
-          console.error('地址解析失败:', addressResult.info || '无数据');
-          weatherInfo.value = { city: '未知', weather: '未知', temperature: '--℃' };
-        }
-      } catch (error) {
-        console.error('获取位置或天气异常:', error);
-        weatherInfo.value = { city: '未知', weather: '未知', temperature: '--℃' };
+  try {
+    let weatherResult = null;
+    let adcode = null;
+
+    // 尝试通过 IP 获取位置信息
+    const ip = await globalStore.fetchClientIp();
+    if (ip) {
+      const ipResult = await globalStore.fetchIpLocation(ip);
+      if (ipResult.status === '1') {
+        adcode = ipResult.adcode;
       }
-    }, (error) => {
-      console.error('定位失败:', error);
-      weatherInfo.value = { city: '定位失败', weather: '--', temperature: '--℃' };
-    });
-  } else {
-    console.error('浏览器不支持地理位置');
-    weatherInfo.value = { city: '不支持定位', weather: '--', temperature: '--℃' };
+    }
+
+    // 如果通过 IP 获取 adcode 成功，则用它来获取天气
+    if (adcode) {
+      weatherResult = await globalStore.fetchWeatherByAdcode(adcode);
+    }
+
+    // 如果上面失败了，再尝试使用默认 adcode
+    if (!weatherResult || weatherResult.status !== '1') {
+      console.warn('IP定位获取天气失败，使用默认adcode: 440111');
+      weatherResult = await globalStore.fetchWeatherByAdcode('440111');
+    }
+
+    // 解析天气数据
+    if (weatherResult.status === '1' && weatherResult.lives?.length > 0) {
+      const weatherData = weatherResult.lives[0];
+      weatherInfo.value = {
+        city: weatherData.city,
+        weather: weatherData.weather,
+        temperature: `${weatherData.temperature}℃`,
+      };
+    } else {
+      console.error('获取天气失败:', weatherResult.info || '无数据');
+      weatherInfo.value = { city: '未知', weather: '未知', temperature: '--℃' };
+    }
+  } catch (error) {
+    console.error('获取天气异常:', error);
+    weatherInfo.value = { city: '定位失败', weather: '--', temperature: '--℃' };
   }
 };
 
 // 新增：跳转到 IPMap 页面
 const goToMap = () => {
-  router.push('/ipmap');
+  router.push('/ipmap2');
 };
-
+const notodo = () => {
+  showFailToast('😊稍等,加急开发中...');
+}
 const goToSearch = () => {
   router.push('/search');
 };
@@ -169,8 +174,8 @@ const grids = ref([
     </div>
 
     <!-- 🎯 图标容器 -->
-    <div class="icon-container">
-      <div class="icon_div" v-for="(icon, index) in [
+    <div class="icon-container" @click="notodo">
+      <div class="icon_div"   v-for="(icon, index) in [
         { src: getIcon('Scan'), text: '扫一扫',  },
         { src: getIcon('Payment'), text: '收付款' },
         { src: getIcon('Travel'), text: '出行' },
@@ -214,7 +219,7 @@ const grids = ref([
         </div>
 
         <!-- 🎯 功能入口网格 -->
-        <div class="grid-section-compact">
+        <div class="grid-section-compact" @click="notodo">
           <Grid :column-num="4" :border="false" class="transparent-grid-item-compact">
             <GridItem
               v-for="(item, index) in grids"
@@ -889,7 +894,7 @@ transform: translateX(-200px);
 .post-item {
   width: calc(50% - 7.5px);
   flex: 0 0 calc(50% - 7.5px); /* 添加flex属性确保宽度固定 */
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(44, 62, 80, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   overflow: hidden;
@@ -962,7 +967,7 @@ transform: translateX(-200px);
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #333;
+  color: #ffffff;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -977,7 +982,7 @@ transform: translateX(-200px);
 
 .post-description {
   font-size: 13px;
-  color: #666;
+  color: #ffffffae;
   margin-bottom: 12px;
   overflow: hidden;
   text-overflow: ellipsis;

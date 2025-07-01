@@ -29,6 +29,35 @@
     <!-- 主要内容区域 -->
     <div class="content-area">
       <!-- 搜索历史 -->
+      
+     
+
+
+  
+      <!-- 萌宠热搜 -->
+      <div class="trending-section" v-if="searchStore.trendingKeywords.length && !keyword">
+        <div class="section-header">
+          <h3>🔥 萌宠热搜</h3>
+        </div>
+        <div class="trending-tags">
+          <van-tag
+            plain
+            type="danger"
+            size="large"
+            v-for="(item, index) in searchStore.trendingKeywords"
+            :key="'trending-' + index"
+            @click="searchFromTrending(item.keyword)"
+            class="trending-tag"
+          >
+            {{ item.keyword }}
+          </van-tag>
+        </div>
+
+        
+      </div>
+
+
+      
       <div class="history-section" v-if="searchStore.searchHistory.length && !keyword">
         <div class="section-header">
           <h3>📚 搜索历史</h3>
@@ -48,26 +77,12 @@
         </div>
       </div>
 
-      <!-- 萌宠热搜 -->
-      <div class="trending-section" v-if="searchStore.trendingKeywords.length && !keyword">
-        <div class="section-header">
-          <h3>🔥 萌宠热搜</h3>
-        </div>
-        <div class="trending-tags">
-          <van-tag
-            plain
-            type="danger"
-            size="large"
-            v-for="(item, index) in searchStore.trendingKeywords"
-            :key="'trending-' + index"
-            @click="searchFromTrending(item.keyword)"
-            class="trending-tag"
-          >
-            {{ item.keyword }}
-          </van-tag>
-        </div>
+      <div v-else>  
+       <van-empty 
+        description="您还没有搜索记录"
+        class="empty-state"
+      />
       </div>
-
       <!-- 搜索结果 -->
       <div class="result-section" v-if="keyword">
         <van-tabs v-model:active="activeTab" class="result-tabs">

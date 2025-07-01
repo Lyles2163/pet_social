@@ -33,7 +33,7 @@ CREATE TABLE `comments` (
   KEY `idx_comment_user` (`user_id`),
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,1,2,'好可爱的小白！','2025-06-07 17:06:56'),(2,1,3,'看起来玩得很开心呢','2025-06-07 17:06:56'),(3,2,1,'我家小白也很喜欢这个玩具','2025-06-07 17:06:56'),(4,1,1,'可爱','2025-06-11 15:22:09'),(5,1,1,'小狗','2025-06-11 21:23:12');
+INSERT INTO `comments` VALUES (1,1,2,'好可爱的小白！','2025-06-07 17:06:56'),(2,1,3,'看起来玩得很开心呢','2025-06-07 17:06:56'),(3,2,1,'我家小白也很喜欢这个玩具','2025-06-07 17:06:56'),(4,1,1,'可爱','2025-06-11 15:22:09'),(5,1,1,'小狗','2025-06-11 21:23:12'),(6,1,2,'好','2025-06-18 16:04:33'),(7,1,1,'可爱','2025-06-18 16:07:24'),(8,20,1,'内网穿透终于好了','2025-06-29 15:40:36'),(9,2,20,'ok','2025-06-29 20:20:10'),(10,3,1,'手机评论','2025-06-29 20:21:15'),(11,15,1,'手机','2025-06-29 20:21:49'),(12,11,22,'我是李庭锋','2025-06-30 09:42:53'),(13,2,20,'666','2025-07-01 09:08:00'),(14,11,1,'66','2025-07-01 09:25:03');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +134,7 @@ CREATE TABLE `post_tags` (
 
 LOCK TABLES `post_tags` WRITE;
 /*!40000 ALTER TABLE `post_tags` DISABLE KEYS */;
-INSERT INTO `post_tags` VALUES (1,1),(2,2),(1,3),(4,3),(5,3),(6,3),(7,3),(8,3),(9,3),(2,4),(1,5),(2,5),(1,6),(2,7);
+INSERT INTO `post_tags` VALUES (1,2),(2,2),(4,2),(5,2),(6,2),(1,3),(7,3),(8,3),(9,3),(2,4),(1,5),(2,5),(1,6),(2,7);
 /*!40000 ALTER TABLE `post_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`),
   KEY `idx_post_user` (`user_id`),
   CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,7 +167,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,1,'和小白的日常','今天和小白一起玩耍，真开心！','https://tse1-mm.cn.bing.net/th/id/OIP-C.vEk5mdeCz3M2Lj9-xMAKpAHaHa?w=217&h=217&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',170,2,'2025-06-07 17:06:56','2025-06-18 10:06:39'),(2,2,'咪咪的新玩具','给咪咪买了新玩具，她超喜欢的！','https://tse3-mm.cn.bing.net/th/id/OIP-C.oWN2tdZpiihXkVycX_lwBQHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',120,0,'2025-06-07 17:06:56','2025-06-18 09:57:29'),(3,3,'铲屎官的日常','养宠物真是太有趣了，分享一些日常。','https://tse4-mm.cn.bing.net/th/id/OIP-C.FErJgRkyDd_hEdmNEUhMfgHaHa?w=184&h=184&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',100,0,'2025-06-07 17:06:56','2025-06-06 09:57:29'),(4,1,'萌宠测试1','test1','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',0,0,'2025-06-12 18:12:01','2025-06-12 18:12:01'),(5,1,'萌宠测试1','test','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',0,0,'2025-06-12 18:16:13','2025-06-12 18:16:13'),(6,1,'萌宠测试1','test','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',3,0,'2025-06-12 18:16:18','2025-06-14 10:34:12'),(7,1,'萌宠测试2','test2','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',5,0,'2025-06-12 18:23:09','2025-06-12 18:23:35'),(8,1,'萌宠测试3','test3','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',0,0,'2025-06-12 18:26:16','2025-06-12 18:26:16'),(9,1,'萌宠测试4','test4','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',1,0,'2025-06-12 18:28:08','2025-06-14 10:34:04'),(10,4,'狗狗的生日派对','今天是我家金毛的3岁生日，办了个小型派对，它超开心！','https://tse4-mm.cn.bing.net/th/id/OIP-C.rymr2DSrrxtCzOvR1cS5MwHaHa?w=210&h=210&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',8,3,'2025-06-08 09:15:22','2025-06-15 19:47:44'),(11,5,'猫咪的日常','我家英短每天最喜欢的事情就是晒太阳和睡觉','https://cbu01.alicdn.com/img/ibank/O1CN012x20Dx1o8whtiGPX4_!!2212100595181-0-cib.jpg',15,5,'2025-06-09 14:30:45','2025-06-15 19:50:22'),(12,6,'仓鼠的小窝','给仓鼠布置了个新窝，它很喜欢里面的小滑梯','https://tse1-mm.cn.bing.net/th/id/OIP-C.5vvKthX8SgNMux3ZR-JD7wHaIh?w=151&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',3,1,'2025-06-10 11:20:18','2025-06-15 19:48:24'),(13,2,'宠物美容记','带咪咪去做了美容，现在它是小区里最靓的仔','https://tse4-mm.cn.bing.net/th/id/OIP-C.rymr2DSrrxtCzOvR1cS5MwHaHa?w=210&h=210&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',22,7,'2025-06-11 16:45:33','2025-06-15 19:47:55'),(14,7,'鹦鹉学舌','我家鹦鹉最近学会了说\"你好\"，太可爱了','https://tse3-mm.cn.bing.net/th/id/OIP-C.WS4GGlFtu_UPavw3RPaPSAHaE7?w=254&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',6,2,'2025-06-12 10:05:55','2025-06-15 19:45:31'),(15,8,'乌龟的慢生活','我家乌龟每天慢悠悠的，但是很健康','https://tse4-mm.cn.bing.net/th/id/OIP-C.TzVajT85Qw18THk4447aIgHaE7?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',4,0,'2025-06-13 15:20:10','2025-06-15 19:50:22'),(16,3,'宠物摄影','尝试给我家狗狗拍了组艺术照，效果还不错','https://tse1-mm.cn.bing.net/th/id/OIP-C.vEk5mdeCz3M2Lj9-xMAKpAHaHa?w=217&h=217&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',19,4,'2025-06-14 13:30:40','2025-06-15 19:50:45'),(17,9,'宠物运动会','参加了宠物运动会，我家兔子得了跳高第二名','https://tse4-mm.cn.bing.net/th/id/OIP-C.FErJgRkyDd_hEdmNEUhMfgHaHa?w=184&h=184&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',11,3,'2025-06-15 09:45:22','2025-06-15 09:45:22'),(18,1,'宠物训练','经过一个月的训练，小白终于学会了坐下和握手','https://tse3-mm.cn.bing.net/th/id/OIP-C.oWN2tdZpiihXkVycX_lwBQHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',28,8,'2025-06-15 17:20:35','2025-06-15 19:48:41'),(19,5,'宠物美食','给我家猫咪做了顿营养餐，它吃得干干净净','https://tse3-mm.cn.bing.net/th/id/OIP-C.oWN2tdZpiihXkVycX_lwBQHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',12,2,'2025-06-15 18:10:15','2025-06-16 09:21:04'),(20,10,'宠物领养','今天领养了一只流浪猫，希望它以后能幸福','https://tse3-mm.cn.bing.net/th/id/OIP-C.5IlySxqfqxdn3QEWHU_I3AHaH0?w=176&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',32,10,'2025-06-15 19:50:45','2025-06-15 19:45:54');
+INSERT INTO `posts` VALUES (1,1,'和小白的日常','今天和小白一起玩耍，真开心！','https://tse1-mm.cn.bing.net/th/id/OIP-C.vEk5mdeCz3M2Lj9-xMAKpAHaHa?w=217&h=217&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',172,6,'2025-06-07 17:06:56','2025-06-18 16:07:24'),(2,2,'咪咪的新玩具','给咪咪买了新玩具，她超喜欢的！','https://tse3-mm.cn.bing.net/th/id/OIP-C.oWN2tdZpiihXkVycX_lwBQHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',126,2,'2025-06-07 17:06:56','2025-07-01 09:08:10'),(3,3,'铲屎官的日常','养宠物真是太有趣了，分享一些日常。','https://tse4-mm.cn.bing.net/th/id/OIP-C.FErJgRkyDd_hEdmNEUhMfgHaHa?w=184&h=184&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',100,1,'2025-06-07 17:06:56','2025-06-29 20:21:15'),(4,1,'萌宠测试1','test1','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',0,0,'2025-06-12 18:12:01','2025-06-12 18:12:01'),(5,1,'萌宠测试1','test','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',0,0,'2025-06-12 18:16:13','2025-06-12 18:16:13'),(6,1,'萌宠测试1','test','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',3,0,'2025-06-12 18:16:18','2025-06-14 10:34:12'),(7,1,'萌宠测试2','test2','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',5,0,'2025-06-12 18:23:09','2025-06-12 18:23:35'),(8,1,'萌宠测试3','test3','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',0,0,'2025-06-12 18:26:16','2025-06-12 18:26:16'),(9,1,'萌宠测试4','test4','https://tse2-mm.cn.bing.net/th/id/OIP-C.vKskv3_gZgRQNReMol5D9wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',1,0,'2025-06-12 18:28:08','2025-06-14 10:34:04'),(10,4,'狗狗的生日派对','今天是我家金毛的3岁生日，办了个小型派对，它超开心！','https://tse4-mm.cn.bing.net/th/id/OIP-C.rymr2DSrrxtCzOvR1cS5MwHaHa?w=210&h=210&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',8,3,'2025-06-08 09:15:22','2025-06-15 19:47:44'),(11,5,'猫咪的日常','我家英短每天最喜欢的事情就是晒太阳和睡觉','https://cbu01.alicdn.com/img/ibank/O1CN012x20Dx1o8whtiGPX4_!!2212100595181-0-cib.jpg',15,7,'2025-06-09 14:30:45','2025-07-01 09:25:03'),(12,6,'仓鼠的小窝','给仓鼠布置了个新窝，它很喜欢里面的小滑梯','https://tse1-mm.cn.bing.net/th/id/OIP-C.5vvKthX8SgNMux3ZR-JD7wHaIh?w=151&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',3,1,'2025-06-10 11:20:18','2025-06-15 19:48:24'),(13,2,'宠物美容记','带咪咪去做了美容，现在它是小区里最靓的仔','https://tse4-mm.cn.bing.net/th/id/OIP-C.rymr2DSrrxtCzOvR1cS5MwHaHa?w=210&h=210&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',22,7,'2025-06-11 16:45:33','2025-06-15 19:47:55'),(14,7,'鹦鹉学舌','我家鹦鹉最近学会了说\"你好\"，太可爱了','https://tse3-mm.cn.bing.net/th/id/OIP-C.WS4GGlFtu_UPavw3RPaPSAHaE7?w=254&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',6,2,'2025-06-12 10:05:55','2025-06-15 19:45:31'),(15,8,'乌龟的慢生活','我家乌龟每天慢悠悠的，但是很健康','https://tse4-mm.cn.bing.net/th/id/OIP-C.TzVajT85Qw18THk4447aIgHaE7?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',9,1,'2025-06-13 15:20:10','2025-06-29 20:22:34'),(16,3,'宠物摄影','尝试给我家狗狗拍了组艺术照，效果还不错','https://tse1-mm.cn.bing.net/th/id/OIP-C.vEk5mdeCz3M2Lj9-xMAKpAHaHa?w=217&h=217&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',19,4,'2025-06-14 13:30:40','2025-06-15 19:50:45'),(17,9,'宠物运动会','参加了宠物运动会，我家兔子得了跳高第二名','https://tse4-mm.cn.bing.net/th/id/OIP-C.FErJgRkyDd_hEdmNEUhMfgHaHa?w=184&h=184&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',11,3,'2025-06-15 09:45:22','2025-06-15 09:45:22'),(18,1,'宠物训练','经过一个月的训练，小白终于学会了坐下和握手','https://tse3-mm.cn.bing.net/th/id/OIP-C.oWN2tdZpiihXkVycX_lwBQHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',28,8,'2025-06-15 17:20:35','2025-06-15 19:48:41'),(19,5,'宠物美食','给我家猫咪做了顿营养餐，它吃得干干净净','https://tse3-mm.cn.bing.net/th/id/OIP-C.oWN2tdZpiihXkVycX_lwBQHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',12,2,'2025-06-15 18:10:15','2025-06-16 09:21:04'),(20,10,'宠物领养','今天领养了一只流浪猫，希望它以后能幸福','https://tse3-mm.cn.bing.net/th/id/OIP-C.5IlySxqfqxdn3QEWHU_I3AHaH0?w=176&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',36,1,'2025-06-15 19:50:45','2025-06-29 15:54:23');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,7 +187,7 @@ CREATE TABLE `search_records` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `search_records_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +196,7 @@ CREATE TABLE `search_records` (
 
 LOCK TABLES `search_records` WRITE;
 /*!40000 ALTER TABLE `search_records` DISABLE KEYS */;
-INSERT INTO `search_records` VALUES (1,1,'小白','pet','2025-06-15 16:36:47'),(2,1,'小白','post','2025-06-15 16:36:47'),(3,1,'咪咪','post','2025-06-15 16:36:57'),(4,1,'咪咪','pet','2025-06-15 16:36:57'),(5,1,'猫','pet','2025-06-15 16:39:14'),(6,1,'猫','post','2025-06-15 16:39:14'),(7,1,'养宠知识','post','2025-06-15 19:04:00'),(8,1,'养宠知识','pet','2025-06-15 19:04:00'),(9,1,'宠物日常','pet','2025-06-15 19:06:27'),(10,1,'宠物日常','post','2025-06-15 19:06:27'),(11,1,'柴犬','pet','2025-06-15 19:06:31'),(12,1,'柴犬','post','2025-06-15 19:06:31'),(13,1,'养宠知识','','2025-06-15 19:11:44'),(14,1,'养宠知识','','2025-06-15 19:11:54'),(15,1,'test','','2025-06-15 19:12:35'),(16,1,'养宠知识','','2025-06-17 19:05:53'),(17,1,'猫','','2025-06-17 19:05:59'),(18,1,'养宠知识','','2025-06-18 10:58:04'),(19,1,'宠物日常','','2025-06-18 13:46:50'),(20,2,'猫','pet','2025-06-18 14:15:10'),(21,2,'猫','post','2025-06-18 14:15:10');
+INSERT INTO `search_records` VALUES (1,1,'小白','pet','2025-06-15 16:36:47'),(2,1,'小白','post','2025-06-15 16:36:47'),(3,1,'咪咪','post','2025-06-15 16:36:57'),(4,1,'咪咪','pet','2025-06-15 16:36:57'),(5,1,'猫','pet','2025-06-15 16:39:14'),(6,1,'猫','post','2025-06-15 16:39:14'),(7,1,'养宠知识','post','2025-06-15 19:04:00'),(8,1,'养宠知识','pet','2025-06-15 19:04:00'),(9,1,'宠物日常','pet','2025-06-15 19:06:27'),(10,1,'宠物日常','post','2025-06-15 19:06:27'),(11,1,'柴犬','pet','2025-06-15 19:06:31'),(12,1,'柴犬','post','2025-06-15 19:06:31'),(13,1,'养宠知识','','2025-06-15 19:11:44'),(14,1,'养宠知识','','2025-06-15 19:11:54'),(15,1,'test','','2025-06-15 19:12:35'),(16,1,'养宠知识','','2025-06-17 19:05:53'),(17,1,'猫','','2025-06-17 19:05:59'),(18,1,'养宠知识','','2025-06-18 10:58:04'),(19,1,'宠物日常','','2025-06-18 13:46:50'),(20,2,'猫','pet','2025-06-18 14:15:10'),(21,2,'猫','post','2025-06-18 14:15:10'),(22,2,'小白','pet','2025-06-18 15:55:54'),(23,2,'小白','post','2025-06-18 15:55:54'),(28,1,'猫','','2025-07-01 09:35:09');
 /*!40000 ALTER TABLE `search_records` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +213,7 @@ CREATE TABLE `tags` (
   `search_count` int unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +222,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'狗',5),(2,'猫',27),(3,'柴犬',10),(4,'布偶猫',7),(5,'养宠知识',23),(6,'宠物日常',12),(7,'萌宠日记',8),(8,'萌宠测试',0),(9,'test',17),(37,'萌宠',2),(58,'小白',2);
+INSERT INTO `tags` VALUES (1,'狗',5),(2,'猫',47),(3,'柴犬',11),(4,'布偶猫',7),(5,'养宠知识',23),(6,'宠物日常',14),(7,'萌宠日记',8),(8,'萌宠测试',0),(9,'test',17),(37,'萌宠',2),(58,'小白',10),(86,'李庭锋',2);
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,15 +238,16 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL COMMENT '电话号',
-  `email` varchar(100) NOT NULL,
-  `avatar` varchar(512) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `avatar` varchar(512) DEFAULT ' https://ts4.tc.mm.bing.net/th/id/OIP-C.5VNSXIg1P1MttnuRViKOWwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `email_2` (`email`),
   KEY `idx_user_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +256,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lyles2163','$2b$10$abcdefghijklmnopqrstuv','13631155285','13631155285@163.com','https://th.bing.com/th/id/OIP.nerglaz_gRZROAwsLehBggAAAA?w=214&h=214&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-07 17:06:56','2025-06-18 09:54:58'),(2,'test_user2','$2b$10$abcdefghijklmnopqrstuv','13631155286','user2@example.com','https://ts1.tc.mm.bing.net/th/id/OIP-C.uMf5AX3a6yYpIhpEkyDxiQAAAA?w=200&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2','2025-06-07 17:06:56','2025-06-18 14:14:16'),(3,'test_user3','$2b$10$abcdefghijklmnopqrstuv','13631155285','user3@example.com','https://ts1.tc.mm.bing.net/th/id/OIP-C.Kj_fCC5KznoJJB12IVUoHwAAAA?w=199&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2','2025-06-07 17:06:56','2025-06-11 21:25:21'),(4,'test','$2b$10$abcdefghijklmnopqrstuv','13631155285','user4@example.com','https://cn.bing.com/images/search?view=detailV2&ccid=JCEcaQJV&id=3F1C8999EA7BF90B749F48121299E12DE6724B30&thid=OIP.JCEcaQJVR_vC2kgt6BGZlAAAAA&mediaurl=https%3a%2f%2fwww.keaitupian.cn%2fcjpic%2ffrombd%2f0%2f253%2f2279408239%2f3825398873.jpg&exph=407&expw=400&q=qq%e5%8e%9f%e5%a4%b4%e5%83%8f%e5%b0%8f%e4%bc%81%e9%b9%85+%e5%8e%9f%e7%89%88qq%e5%a4%b4%e5%83%8f%e4%bc%81%e9%b9%85%e5%a4%b4%e5%83%8f_%e9%85%8d%e5%9b%be%e7%bd%91&mode=overlay&FORM=IQFRBA&ck=5860E5A1FEDBF670A6D800622611C236&selectedIndex=0','2025-06-07 17:06:56','2025-06-09 10:21:43'),(5,'john_doe','password123','13631155285','john.doe@example.com','https://th.bing.com/th/id/OIP.hA4vqe2IRmCbMP3_ASplNQAAAA?w=168&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 08:56:53','2025-06-18 10:04:00'),(6,'jane_smith','securepass456','13631155285','jane.smith@example.org','https://th.bing.com/th/id/OIP.RRmRd57uE43wlHiawIuR0QAAAA?w=171&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 08:56:53','2025-06-18 10:00:11'),(7,'mike_jones','mypass789','13631155285','mike.jones@example.net','https://th.bing.com/th/id/OIP.nerglaz_gRZROAwsLehBggAAAA?w=214&h=214&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 08:56:53','2025-06-18 09:54:58'),(8,'sarah_lee','letmein123','13631155285','sarah.lee@example.co','https://th.bing.com/th/id/OIP.nerglaz_gRZROAwsLehBggAAAA?w=214&h=214&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 08:56:53','2025-06-18 09:54:58'),(9,'alex_wong','passw0rd!','13631155285','alex.wong@example.io','https://th.bing.com/th/id/OIP.6SGCW70tUOoITDtXEmQMjQAAAA?w=168&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 08:56:53','2025-06-18 10:03:37'),(10,'joh','password123','13631155285','john.doe@example1.com','https://th.bing.com/th/id/OIP.54qlbLNAZ64K94c_DCT-qAAAAA?w=154&h=166&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 10:10:34','2025-06-18 09:59:23'),(11,'jane','securepass456','13631155285','jane.smith@exampl1e.org','https://th.bing.com/th/id/OIP.54qlbLNAZ64K94c_DCT-qAAAAA?w=154&h=166&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 10:10:34','2025-06-18 09:59:23'),(12,'mike_j','letmein123','13631155285','sarah.lee@example1.co','https://th.bing.com/th/id/OIP.nerglaz_gRZROAwsLehBggAAAA?w=214&h=214&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 10:10:34','2025-06-18 09:54:58'),(13,'alex_wg1','passw0rd!','13631155285','alex.wong@example1.io','https://th.bing.com/th/id/OIP.jX1ixj68l-Ot9NMkW_m_9wAAAA?w=174&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 10:10:34','2025-06-18 09:57:04'),(14,'user_FKS36','','12345698745','','https://th.bing.com/th/id/OIP.jX1ixj68l-Ot9NMkW_m_9wAAAA?w=174&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 11:02:00','2025-06-18 09:57:04');
+INSERT INTO `users` VALUES (1,'lyles2163','$2b$10$abcdefghijklmnopqrstuv','13631155285','565641212@163.com','https://tse4-mm.cn.bing.net/th/id/OIP-C._L4bc3IzzUIExu1cPQ2HsgAAAA?w=171&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-07 17:06:56','2025-07-01 09:01:15'),(2,'test_user2','$2b$10$abcdefghijklmnopqrstuv','13631155286','user2@example.com','https://ts1.tc.mm.bing.net/th/id/OIP-C.uMf5AX3a6yYpIhpEkyDxiQAAAA?w=200&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2','2025-06-07 17:06:56','2025-06-18 14:14:16'),(3,'test_user3','$2b$10$abcdefghijklmnopqrstuv','136311552857','user3@example.com','https://ts1.tc.mm.bing.net/th/id/OIP-C.Kj_fCC5KznoJJB12IVUoHwAAAA?w=199&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2','2025-06-07 17:06:56','2025-06-28 20:22:22'),(4,'test','$2b$10$abcdefghijklmnopqrstuv','136311552858','user4@example.com','https://img2.baidu.com/it/u=199363802,1916398725&fm=253&fmt=auto&app=120&f=JPEG?w=503&h=500','2025-06-07 17:06:56','2025-06-29 20:16:38'),(5,'john_doe','password123','13631155289','john.doe@example.com','https://img1.baidu.com/it/u=1466043940,779429976&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500','2025-06-09 08:56:53','2025-06-29 20:15:25'),(6,'jane_smith','securepass456','13631155299','jane.smith@example.org','https://th.bing.com/th/id/OIP.RRmRd57uE43wlHiawIuR0QAAAA?w=171&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 08:56:53','2025-06-28 20:22:22'),(7,'mike_jones','mypass789','12631155285','mike.jones@example.net','https://img1.baidu.com/it/u=1810144852,3699584189&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500','2025-06-09 08:56:53','2025-06-29 20:17:44'),(8,'sarah_lee','letmein123','14631155285','sarah.lee@example.co','https://img1.baidu.com/it/u=3985150573,583103601&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500','2025-06-09 08:56:53','2025-06-29 20:23:19'),(9,'alex_wong','passw0rd!','15631155285','alex.wong@example.io','https://img1.baidu.com/it/u=3829272826,4235199634&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500','2025-06-09 08:56:53','2025-06-29 20:17:11'),(10,'joh','password123','17631155285','john.doe@example1.com','https://img2.baidu.com/it/u=144926030,3439595835&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500','2025-06-09 10:10:34','2025-06-29 20:15:25'),(11,'jane','securepass456','18631155285','jane.smith@exampl1e.org','https://th.bing.com/th/id/OIP.54qlbLNAZ64K94c_DCT-qAAAAA?w=154&h=166&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 10:10:34','2025-06-28 20:22:22'),(12,'mike_j','letmein123','19631155285','sarah.lee@example1.co','https://img1.baidu.com/it/u=1637142835,3949135594&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500','2025-06-09 10:10:34','2025-06-29 20:16:38'),(13,'alex_wg1','passw0rd!','13131155285','alex.wong@example1.io','https://th.bing.com/th/id/OIP.jX1ixj68l-Ot9NMkW_m_9wAAAA?w=174&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 10:10:34','2025-06-28 20:22:22'),(14,'user_FKS36','','12345698745','','https://th.bing.com/th/id/OIP.jX1ixj68l-Ot9NMkW_m_9wAAAA?w=174&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3','2025-06-09 11:02:00','2025-06-18 09:57:04'),(20,'用户9518','','18928109518',NULL,' https://ts4.tc.mm.bing.net/th/id/OIP-C.5VNSXIg1P1MttnuRViKOWwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3','2025-06-29 20:12:04','2025-06-29 20:12:04'),(21,'用户9519','','18928109519',NULL,' https://ts4.tc.mm.bing.net/th/id/OIP-C.5VNSXIg1P1MttnuRViKOWwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3','2025-06-29 20:30:17','2025-06-29 20:30:17'),(22,'用户4394','','13590774394',NULL,' https://ts4.tc.mm.bing.net/th/id/OIP-C.5VNSXIg1P1MttnuRViKOWwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3','2025-06-30 09:40:34','2025-06-30 09:40:34'),(23,'用户8611','','1008611',NULL,' https://ts4.tc.mm.bing.net/th/id/OIP-C.5VNSXIg1P1MttnuRViKOWwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3','2025-06-30 09:46:42','2025-06-30 09:46:42'),(24,'用户9380','','15917539380',NULL,' https://ts4.tc.mm.bing.net/th/id/OIP-C.5VNSXIg1P1MttnuRViKOWwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3','2025-06-30 20:42:05','2025-06-30 20:42:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -268,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-18 14:59:26
+-- Dump completed on 2025-07-01  9:53:04

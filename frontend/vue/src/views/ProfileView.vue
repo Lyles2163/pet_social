@@ -1,8 +1,9 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { Cell, CellGroup, Button, Uploader } from 'vant'
+import { Cell, CellGroup, Button, Uploader,showFailToast,showSuccessToast } from 'vant'
 import { useUserStore } from '@/stores/userStore' // 引入userStore
+import axios from 'axios';
 
 const router = useRouter()
 const userStore = useUserStore() // 使用userStore
@@ -25,8 +26,32 @@ const logout = () => {
   router.push('/login')
 }
 
-const afterRead = (file) => {
-  // 上传头像逻辑
+const afterRead = async (file) => {
+  try {
+    const formData = new FormData();
+    formData.append('image', file.file);
+
+    // 修改为从session获取认证信息
+    const { data } = await axios.post('http://localhost:3000/api/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        // 移除Bearer Token方式
+        Cookie: document.cookie // 自动携带session cookie
+      },
+      withCredentials: true // 启用凭证传输
+    });
+
+    // 更新本地用户信息和store
+    userStore.userInfo.avatar = data.data.url;
+    formData.value.avatar = data.data.url;
+    
+    // 触发父组件更新
+    emit('update:modelValue', data.data.url);
+    showSuccessToast('头像更新成功');
+  } catch (error) {
+    console.error('上传失败:', error);
+    showFailToast('头像更新失败');
+  }
 }
 
 const fetchUser = async () => {
@@ -45,7 +70,9 @@ const fetchUser = async () => {
     console.error('获取用户信息失败:', error)
   }
 }
-
+const notodo = () => {
+  showFailToast('😊稍等,加急开发中...');
+}
 const updateUser = async () => {
   try {
     const storedUser = localStorage.getItem('user')
@@ -56,11 +83,23 @@ const updateUser = async () => {
     }
     
     const userId = JSON.parse(storedUser).id
-    await userStore.updateUser(userId, formData.value)
-    editMode.value = false
-    await fetchUser()
+    const response = await axios.put(`http://222.186.56.249:52858/api/user/${userId}`, formData.value, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      withCredentials: true
+    })
+    
+    if (response.data.code === 200) {
+      showSuccessToast('更新成功')
+      editMode.value = false
+      await fetchUser()
+    } else {
+      showFailToast(response.data.message || '更新失败')
+    }
   } catch (error) {
     console.error('更新用户信息失败:', error)
+    showFailToast(error.response?.data?.message || '服务器错误')
   }
 }
 
@@ -112,9 +151,9 @@ onMounted(() => {
           
           <div class="menu-section">
             <CellGroup class="menu-group">
-              <Cell title="🐾 我的宠物" is-link class="menu-item" />
-              <Cell title="❤️ 我的收藏" is-link class="menu-item" />
-              <Cell title="⚙️ 设置" is-link class="menu-item" />
+              <Cell title="🐾 我的宠物"  @click="notodo" is-link class="menu-item" />
+              <Cell title="❤️ 我的收藏"  @click="notodo" is-link class="menu-item" />
+              <Cell title="⚙️ 设置"  @click="notodo" is-link class="menu-item" />
               <Cell title="🚪 退出登录" is-link @click="logout" class="menu-item logout-item" />
             </CellGroup>
           </div>

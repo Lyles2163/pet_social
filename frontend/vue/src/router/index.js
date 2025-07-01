@@ -52,6 +52,11 @@ const routes = [
     path: '/ipMap',
     name: 'ipmap',
     component: () => import('../views/IPMap.vue')
+  },
+  {
+    path: '/ipMap2',
+    name: 'ipmap2',
+    component: () => import('../views/IPMap2.vue')
   }
   ,
   {

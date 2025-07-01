@@ -7,7 +7,7 @@ const POST_CACHE_TTL = 86400; // 缓存过期时间，1天（秒）
 const POSTS_LIST_CACHE_KEY_PREFIX = 'posts:list'; // 帖子列表缓存 Key 前缀
 const TAG_CACHE_TTL = 86400 ; // 标签缓存过期时间，1天
 
-// ✅ 修改：获取所有宠物信息列表（带缓存逻辑，支持排序）
+// ✅ 修改：获取所有宠物信息列表
 router.get('/posts', async (req, res) => {
   try {
     // ✅ 新增：获取排序参数，默认为按创建时间倒序

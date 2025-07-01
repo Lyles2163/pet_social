@@ -40,40 +40,20 @@ const showToast = (message, type = 'info') => {
 // 获取帖子详情
 const fetchPostDetail = async () => {
   try {
-    const response = await axios.get(`http://localhost:3000/api/posts/${postId}`);
-    if (response.data.code === 200) {
-      if (Array.isArray(response.data.data) && response.data.data.length > 0) {
-        post.value = response.data.data[0];
-      } else {
-        post.value = null;
-        showToast('未找到帖子详情', 'error');
-        console.error('未找到帖子详情:', response.data);
-      }
-      console.log('帖子详情:', post.value);
-    } else {
-      showToast('获取帖子详情失败: ' + response.data.message, 'error');
-      console.error('获取帖子详情失败:', response.data.message);
-    }
+    await postStore.fetchPostDetail(postId);
+    post.value = postStore.currentPost;
   } catch (error) {
-    showToast('获取帖子详情异常', 'error');
-    console.error('获取帖子详情异常:', error);
+    showToast('获取帖子详情失败', 'error');
   }
 };
 
 // 获取评论列表
 const fetchComments = async () => {
   try {
-    const response = await axios.get(`http://localhost:3000/api/posts/${postId}/comments`);
-    if (response.data.code === 200) {
-      comments.value = response.data.data;
-      console.log('评论列表:', comments.value);
-    } else {
-      showToast('获取评论列表失败: ' + response.data.message, 'error');
-      console.error('获取评论列表失败:', response.data.message);
-    }
+    await postStore.fetchComments(postId);
+    comments.value = postStore.comments;
   } catch (error) {
-    showToast('获取评论列表异常', 'error');
-    console.error('获取评论列表异常:', error);
+    showToast('获取评论失败', 'error');
   }
 };
 
@@ -92,7 +72,7 @@ const addComment = async () => {
 
   isSubmitting.value = true;
   try {
-    const response = await axios.post(`http://localhost:3000/api/posts/${postId}/comments`, {
+    const response = await axios.post(`http://222.186.56.249:52858/api/posts/${postId}/comments`, {
       userId: currentUser.id,
       content: newCommentContent.value.trim(),
     });
@@ -137,7 +117,7 @@ const likePost = async () => {
 // 根据用户ID从缓存的用户列表中查找用户头像
 const getUserAvatar = (userId) => {
   const user = userStore.cachedUsers.find(u => u.id === userId);
-  return user ? user.avatar : 'https://img.yzcdn.cn/vant/user-default.png';
+  return user ? user.avatar : 'data:image/webp;base64,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';
 };
 
 // 格式化时间
@@ -504,7 +484,7 @@ const onClickLeft = () => history.back();
 
 /* 帖子信息卡片 */
 .post-info-card {
-  background: rgba(255, 255, 255, 0.95);
+ background: rgba(44, 62, 80, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 1.5rem;
@@ -638,7 +618,7 @@ const onClickLeft = () => history.back();
 
 /* 评论区域 */
 .comments-section {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(44, 62, 80, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 1.5rem;

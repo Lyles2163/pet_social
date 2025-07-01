@@ -109,7 +109,7 @@ const handleBubbleClick = () => {
       v-model:show="showChatPopup"
       position="center"
       class="chat-popup"
-      :style="{ width: '95%', height: '60%', borderRadius: '20px' }" 
+      :style="{ width: '95%', height: '80%', borderRadius: '20px' }" 
       round
     >
       <div class="popup-header">
